@@ -44,7 +44,7 @@ public class App {
         if(verificaNomeExistente(nome)){
             listaAlunos.add(new Aluno(nome));
         }else{
-            System.out.println("\n#### 1NOME JA CADASTRADO ####\n");
+            System.out.println("\n#### NOME JA CADASTRADO ####\n");
         }
     }
 

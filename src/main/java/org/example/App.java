@@ -5,13 +5,9 @@ import java.util.Scanner;
 import java.util.Set;
 
 public class App {
-
-    // Como os métodos já são estáticos não é necessário utilizar variáveis globais, podem ser passados por parâmetro.
-    private static Scanner sc = new Scanner(System.in);
-    private static Set<Aluno> listaAlunos = new HashSet<Aluno>();
-
     public static void main(String[] args) {
-
+        Set<String> alunos = new HashSet();
+        Scanner read = new Scanner(System.in);
         String option;
 
         do {
@@ -19,39 +15,39 @@ public class App {
             System.out.println("[1] - Inserir Aluno");
             System.out.println("[2] - Imprimir Lista\n");
             System.out.println("[0] - Sair\n");
-            option = sc.nextLine();
+            System.out.print("Opção: ");
+            option = read.nextLine();
 
             switch (option) {
                 case "1":
-                    inserirAluno();
+                    inserirAluno(alunos, read);
                     break;
                 case "2":
-                    exibirLista();
+                    exibirLista(alunos);
                     break;
                 case "0":
-                    exibirLista();
+                    System.exit(0);
                     break;
-                // É sempre bom ter um default dentro de um switch.
+                default:
+                    System.out.println("Opção inválida!");
             }
         } while (!option.equals("0"));
     }
 
-    private static void inserirAluno() {
-        System.out.println("Insira o nome: ");
-        String nome = sc.nextLine();
-        if (listaAlunos.add(new Aluno(nome)) == false) { // Não tem a necessidade da igualdade: if (!listaAlunos.add(new Aluno(nome))).
-            System.out.println("\n#### NOME JA CADASTRADO ####\n");
+    private static void inserirAluno(Set<String> listaAlunos, Scanner read) {
+        System.out.print("Insira o nome: ");
+        if (!listaAlunos.add(read.nextLine())) {
+            System.out.println("\n#### NOME JA CADASTRADO! ####\n");
+        } else {
+            System.out.println("\n#### ALUNO CADASTRADO COM SUCESSO! ####");
         }
-        /* Como está retornando mensagens para o usuário sobre a inserção, é interessante mostrar que a inserção foi bem sucedida:
-        System.out.println("\n#### ALUNO INSERIDO COM SUCESSO ####\n").
-        */ 
-        System.out.println("\n");
     }
 
-    private static void exibirLista() {
+    private static void exibirLista(Set<String> listaAlunos) {
         System.out.println("----- Lista de nomes -----");
-        for (Aluno aluno : listaAlunos) {
-            System.out.println(aluno.getNome());
+        for (String aluno : listaAlunos) {
+            System.out.println(aluno);
         }
+        System.out.println();
     }
 }

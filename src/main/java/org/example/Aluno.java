@@ -1,3 +1,8 @@
+/*Como não é necesseário persistir os dados e a lista é só do nome dos alunos,
+criar uma classe Aluno só aumenta o número de linhas do código.
+Essa refatoração de código seria interessante se posteriormente fossem adicionados mais campos
+em alunos e se outras classes também usufluissem desta classe.*/
+
 package org.example;
 
 public class Aluno implements Comparable<Aluno> {

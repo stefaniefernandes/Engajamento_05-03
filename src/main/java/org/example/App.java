@@ -6,6 +6,7 @@ import java.util.Set;
 
 public class App {
 
+    // Como os métodos já são estáticos não é necessário utilizar variáveis globais, podem ser passados por parâmetro.
     private static Scanner sc = new Scanner(System.in);
     private static Set<Aluno> listaAlunos = new HashSet<Aluno>();
 
@@ -30,6 +31,7 @@ public class App {
                 case "0":
                     exibirLista();
                     break;
+                // É sempre bom ter um default dentro de um switch.
             }
         } while (!option.equals("0"));
     }
@@ -37,10 +39,12 @@ public class App {
     private static void inserirAluno() {
         System.out.println("Insira o nome: ");
         String nome = sc.nextLine();
-        if (listaAlunos.add(new Aluno(nome)) == false) {
+        if (listaAlunos.add(new Aluno(nome)) == false) { // Não tem a necessidade da igualdade: if (!listaAlunos.add(new Aluno(nome))).
             System.out.println("\n#### NOME JA CADASTRADO ####\n");
         }
-
+        /* Como está retornando mensagens para o usuário sobre a inserção, é interessante mostrar que a inserção foi bem sucedida:
+        System.out.println("\n#### ALUNO INSERIDO COM SUCESSO ####\n").
+        */ 
         System.out.println("\n");
     }
 

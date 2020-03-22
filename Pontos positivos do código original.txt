@@ -1,0 +1,8 @@
+Foi utilizado a collection de List;
+Manipulou as collections com métodos voltados para as mesmas;
+Usaram ForEach como laço de repetição;
+Foca apenas no que é importante para o funcionamento da aplicação;
+A condição do Switch é comparado como String, não tendo a necessidade de conversão para Int;
+Separou a main dos métodos secundários;
+Código limpo e indentado;
+Funcional.

@@ -45,9 +45,6 @@ public class App {
 
     private static void exibirLista(Set<String> listaAlunos) {
         System.out.println("----- Lista de nomes -----");
-        for (String aluno : listaAlunos) {
-            System.out.println(aluno);
-        }
-        System.out.println();
+         listaAlunos.forEach(System.out::println);
     }
 }
